@@ -1,0 +1,23 @@
+<div *ngFor="let lab of labs;let i=index;">
+  <md-card>
+    <md-card-content>
+      <div fxLayout="row">
+        <div fxLayout="column" fxFlex="15">
+          <md-icon class="lab-icon">local_pharmacy</md-icon>
+        </div>
+        <div class="pointer" (click)="!isAddMode ? onSelectLab(lab) : ''" fxLayout="column" fxFlex>
+          <md-card-title>{{lab.name}} </md-card-title>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <span>{{lab.address}}</span>
+            <span>{{lab.phone}}</span>
+          </div>
+        </div>
+        <div fxFlex="10" fxLayout="column" fxLayoutAlign="start start">
+          <button md-icon-button (click)="openDialog(lab)" [disabled]="isAddMode">
+            <md-icon color="accent">delete</md-icon>
+        </button>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

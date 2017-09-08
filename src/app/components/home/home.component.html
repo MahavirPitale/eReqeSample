@@ -1,0 +1,12 @@
+<div div fxLayout="row" fxFlex='100%'>
+  <div fxFlex='90' fxLayoutAlign="start start" >
+    <button md-button [mdMenuTriggerFor]="menu">Menu</button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item [routerLink]="['/lablist']">Display Labs</button>
+      <button md-menu-item>Add Labs</button>
+    </md-menu>
+  </div>
+  <div fxFlex='10' >Welcome : {{name}}
+    <button md-button (click)="logout()" >    LogOut</button>
+  </div>
+</div>

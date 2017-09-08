@@ -1,0 +1,40 @@
+<div fxLayout="row" fxLayoutAlign="center center" style="height: 100%;margin-top:200px">
+  <div class="login mat-elevation-z12">
+    <div class="login-header" fxLayout="column" fxLayoutAlign="left">
+      <h2>
+        Baxture 
+      </h2>
+      <h3 style="margin-bottom: 0px;">Sign in</h3>
+      <div>to continue to eReq</div>
+    </div>
+    <form class="example-form" #form="ngForm" (ngSubmit)="onLogin()">
+      
+      <div class="login-content" fxLayout="column" fxLayoutAlign="start stretch">
+        <md-form-field >
+          <input mdInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="email">
+          <md-error *ngIf="emailFormControl.hasError('pattern')">
+            Please enter a valid email address
+          </md-error>
+          <md-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </md-error>
+        </md-form-field>
+        <md-input-container>
+        <!-- <md-form-field> -->
+          <input mdInput type="password" #postalCode maxlength="8" [formControl]="passwordFormControl" placeholder="Password" [(ngModel)]="password">
+          <md-hint align="end">{{postalCode.value.length}} / 8</md-hint>
+          <md-error *ngIf="passwordFormControl.hasError('pattern')">
+            Please enter a valid password
+          </md-error>
+          <md-error *ngIf="passwordFormControl.hasError('required')">
+            password is <strong>required</strong>
+          </md-error>
+        <!-- </md-form-field> -->
+        </md-input-container>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" >
+      <button color="accent" type="submit" md-raised-button>Submit</button></div>
+    </form>
+
+  </div>
+</div>
