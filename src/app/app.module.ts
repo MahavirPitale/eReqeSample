@@ -5,7 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule, MdInputModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { appRouting } from './app.routes'
+import { appRouting , entryComponents } from './app.routes'
 import {AuthGuard} from './services/auth.guard';
 
 
@@ -13,14 +13,14 @@ import {AuthGuard} from './services/auth.guard';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { LabslistComponent } from './components/labslist/labslist.component';
+import { LabslistComponent, DeleteLabComponent } from './components/labslist/labslist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    LabslistComponent
+    LabslistComponent, DeleteLabComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,7 @@ import { LabslistComponent } from './components/labslist/labslist.component';
     FlexLayoutModule,HttpModule,appRouting
   ],
   providers: [AuthGuard],
+  entryComponents: [entryComponents],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

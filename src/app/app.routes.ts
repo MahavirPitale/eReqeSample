@@ -5,6 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { LabslistComponent } from './components/labslist/labslist.component';
 import { AppComponent } from './app.component';
 
+
+import { DeleteLabComponent } from './components/labslist/labslist.component'
 import { AuthGuard } from './services/auth.guard';
 
 
@@ -18,3 +20,5 @@ const appRoutes: Routes = [
 ];
 
 export const appRouting = RouterModule.forRoot(appRoutes, {useHash: true});
+
+export const entryComponents = [DeleteLabComponent];

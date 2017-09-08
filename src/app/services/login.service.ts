@@ -16,7 +16,7 @@ export class LoginService {
     public validateUser = (body: any,options: any): Observable<UserDetails> => {
             
      
-              return this._http.post("http://10.10.20.205:8000/v1/auth/login",body,options)
+              return this._http.post("http://10.10.20.205:8002/v1/auth/login",body,options)
             .map(data => data.json());
 
     }

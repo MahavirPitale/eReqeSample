@@ -1,4 +1,98 @@
-<div *ngFor="let lab of labs;let i=index;">
+<md-accordion class="example-headers-align" fxFlex="60" style="margin-top: 100px">
+  <md-expansion-panel [expanded]="step === i"  (opened)="setStep(i,lab)" hideToggle="true" *ngFor="let lab of labs;let i=index;">
+    <md-expansion-panel-header>
+      <md-panel-title fxFlex="30">
+        <md-icon class="lab-icon">local_pharmacy</md-icon>{{lab.name}}
+      </md-panel-title>
+      <md-panel-description fxLayoutAlign="start" fxFlex="40">
+        <div fxFlexAlign="start start">{{lab.address}} {{lab.phone}}
+        </div>
+      </md-panel-description>
+      <md-panel-description>
+
+        <!-- <md-icon>account_circle</md-icon> -->
+        <div fxFlex="10" fxLayout="column" fxLayoutAlign="start start">
+          <button md-icon-button (click)="openDialog(lab)" [disabled]="isAddMode">
+              <md-icon color="indigo">delete</md-icon>
+          </button>
+        </div>
+      </md-panel-description>
+    </md-expansion-panel-header>
+
+    <div >
+        <!-- *ngIf="selectedLab.id" -->
+      <form #form="ngForm">
+        <div fxLayout="column" style="padding: 16px;">
+          <div fxLayout="row" fxLayoutGap="15px">
+            <md-input-container fxFlex>
+              <input mdInput name="name" placeholder="Name" minlength="4" maxlength="50" [(ngModel)]="selectedLab.name" required>
+            </md-input-container>
+            <md-input-container fxFlex>
+              <input mdInput name="phone" type="phone" placeholder="Phone" [(ngModel)]="selectedLab.phone" required>
+            </md-input-container>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px">
+            <md-input-container fxFlex>
+              <input mdInput name="address1" placeholder="Address" [(ngModel)]="selectedLab.address" maxlength="50" required>
+            </md-input-container>
+            <md-input-container fxFlex>
+              <input mdInput name="address2" placeholder="Address(Line 2)" [(ngModel)]="selectedLab.address2" maxlength="50">
+            </md-input-container>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px">
+            <md-input-container fxFlex>
+              <input mdInput name="city" placeholder="City/Town" required maxlength="50" [(ngModel)]="selectedLab.city">
+            </md-input-container>
+            <md-input-container fxFlex>
+              <input mdInput name="state" placeholder="State/Province" [(ngModel)]="selectedLab.state" required maxlength="50">
+            </md-input-container>
+            <md-input-container fxFlex>
+              <input mdInput type="number" name="zip" placeholder="Postal/Zip Code" [(ngModel)]="selectedLab.zip" required maxlength="50">
+            </md-input-container>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px">
+            <md-input-container fxFlex>
+              <input mdInput name="email" type="email" placeholder="email" [(ngModel)]="selectedLab.email">
+            </md-input-container>
+
+            <md-input-container fxFlex>
+              <input mdInput name="fax" placeholder="Fax" [(ngModel)]="selectedLab.fax">
+            </md-input-container>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px">
+            <md-input-container fxFlex>
+              <input mdInput name="cliaNo" placeholder="CLIA No." [(ngModel)]="selectedLab.cliaNo" required maxlength="16">
+            </md-input-container>
+
+            <md-input-container fxFlex>
+              <input mdInput name="LabDirector" placeholder="Lab Director" [(ngModel)]="selectedLab.labDirector" required>
+            </md-input-container>
+          </div>
+
+          <br>
+          <!-- <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+            <button md-raised-button color="accent" type="submit" (click)="onUpdateLabs(selectedLab)">Update</button>
+            <button md-button (click)="cancelDetails(lab)">
+           CANCEL
+        </button>
+          </div> -->
+        </div>
+      </form>
+    </div>
+
+    <md-action-row>
+        <button md-raised-button color="accent" type="submit" (click)="onUpdateLabs(selectedLab)">Update</button>
+        <button md-button (click)="cancel()">
+       CANCEL
+    </button>
+      <!-- <button md-button *ngIf="step >=1" color="warn" (click)="prevStep()">Previous</button>
+      <button md-button color="primary" (click)="nextStep()">Next</button> -->
+      
+    </md-action-row>
+  </md-expansion-panel>
+</md-accordion>
+
+<!-- <div *ngFor="let lab of labs;let i=index;">
   <md-card>
     <md-card-content>
       <div fxLayout="row">
@@ -20,4 +114,4 @@
       </div>
     </md-card-content>
   </md-card>
-</div>
+</div> -->
